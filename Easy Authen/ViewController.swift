@@ -56,16 +56,63 @@ class ViewController: UIViewController {
             
             self.presentViewController(myAlert, animated: true, completion: nil)
             
+        }else{
+        
+            var trueUser = ["test1", "test2", "test3"]
+            var truePass = ["123","456","789"]
+            var index = 0
+            var status = false
+            var myTruePass = ""
             
             
             
+            for myfor in trueUser {
+                if (strUser == myfor) {
+                   status = true
+                    myTruePass = truePass[index]
+                }//if
+                
+                index += 1
+                
+                
+            }//for
             
             
+            if status {
+                if (strPass == myTruePass) {
+                    
+                    print("Welcome")
+                    
+                }else{
+                    
+                    myAlertDialog("password False", steMessage: "Please Try Again Password False")
+                    
+                }
+                
+            }else{
             
+                myAlertDialog("ไม่มี User นี้", steMessage: "ไม่มี User ในฐานข้อมูลของเรา")
             
+            }
             
-        }
+        
+        }//if
+        
+        
+        
+        
+        
     }
+    func myAlertDialog(strTitle:String, steMessage:String) -> Void {
+        let myAlert = UIAlertController(title: strTitle, message: steMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(myAlert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
     
 }
 
